@@ -4,30 +4,47 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--<Button-->
-        <!--style="?android:attr/borderlessButtonStyle"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:drawablePadding="@dimen/_15sdp"-->
-        <!--android:text="Home"-->
-        <!--android:textAlignment="textStart"-->
-        <!--android:textAllCaps="false" />-->
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_15sdp"
+        android:drawableStart="@drawable/ic_home_black_24dp"
+        android:onClick="onHome"
+        android:text="Home"
+        android:textAlignment="textStart"
+        android:textAllCaps="false" />
 
-    <!--<Button-->
-        <!--style="?android:attr/borderlessButtonStyle"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:drawablePadding="@dimen/_15sdp"-->
-        <!--android:text="Order"-->
-        <!--android:textAlignment="textStart"-->
-        <!--android:textAllCaps="false" />-->
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_15sdp"
+        android:drawableStart="@drawable/ic_home_black_24dp"
+        android:onClick="onOrder"
+        android:text="Order"
+        android:textAlignment="textStart"
+        android:textAllCaps="false" />
 
-    <!--<Button-->
-        <!--style="?android:attr/borderlessButtonStyle"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:drawablePadding="@dimen/_15sdp"-->
-        <!--android:text="About"-->
-        <!--android:textAlignment="textStart"-->
-        <!--android:textAllCaps="false" />-->
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_15sdp"
+        android:drawableStart="@drawable/ic_home_black_24dp"
+        android:onClick="onPayments"
+        android:text="Payment"
+        android:textAlignment="textStart"
+        android:textAllCaps="false" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_15sdp"
+        android:drawableStart="@drawable/ic_home_black_24dp"
+        android:onClick="onAbout"
+        android:text="About"
+        android:textAlignment="textStart"
+        android:textAllCaps="false" />
 </LinearLayout>

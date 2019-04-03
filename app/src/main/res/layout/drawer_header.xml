@@ -12,27 +12,28 @@
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/civ_rider_drawer_photo"
+            android:id="@+id/civ_photo"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_marginBottom="@dimen/_2sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_2sdp"
             android:background="@drawable/circle_app"
             android:padding="@dimen/_2sdp" />
 
         <TextView
-            android:id="@+id/tv_rider_drawer_full_name"
+            android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_1sdp"
             android:singleLine="true"
+            android:text="AEL"
             android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>

@@ -14,13 +14,12 @@
         android:roundIcon="@drawable/splash_bg"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:theme="@style/SplashActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,10 +27,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
+            android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.OrderActivity" />
+        <activity android:name=".activity.PaymentsActivity"></activity>
     </application>
+
 </manifest>

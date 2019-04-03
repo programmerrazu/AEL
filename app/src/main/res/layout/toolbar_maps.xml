@@ -5,7 +5,6 @@
     android:layout_height="?attr/actionBarSize"
     android:layout_marginLeft="@dimen/_9sdp"
     android:layout_marginRight="@dimen/_100sdp"
-    android:layout_marginTop="@dimen/_24sdp"
     android:background="@android:color/transparent"
     android:elevation="1dp"
     android:minHeight="?attr/actionBarSize"

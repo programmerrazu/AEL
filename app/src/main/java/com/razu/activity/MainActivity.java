@@ -1,7 +1,8 @@
-package com.razu;
+package com.razu.activity;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -19,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,6 +32,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.razu.R;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,11 +42,11 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
+    private static final float MAP_ZOOM = 14.0f;
     private SupportMapFragment fragmentMaps;
     private GoogleMap maps;
     private Boolean locationPermissionGranted;
-    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-    private static final float MAP_ZOOM = 14.0f;
     private View btnLocation;
     private FloatingActionButton fabBtnLocation;
     private CardView cardViewSearchContainer;
@@ -61,19 +64,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void setUIComponent() {
-        fragmentMaps = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_maps);
-        assert fragmentMaps != null;
-        fragmentMaps.getMapAsync(this);
 
-        fabBtnLocation = (FloatingActionButton) findViewById(R.id.fab_btn_location);
-        tvCLoc = (TextView) findViewById(R.id.tv_current_loc);
-
-      //  toolbar = (Toolbar) findViewById(R.id.toolbar_in_maps);
-      //  setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_in_maps);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
-        toggle = new ActionBarDrawerToggle(this, null, toolbar, R.string.open, R.string.close);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         toggle.setDrawerIndicatorEnabled(false);
         toggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +78,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+        toggle.setHomeAsUpIndicator(R.drawable.ic_user);
+
+        fragmentMaps = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_maps);
+        assert fragmentMaps != null;
+        fragmentMaps.getMapAsync(this);
+
+        fabBtnLocation = (FloatingActionButton) findViewById(R.id.fab_btn_location);
+        tvCLoc = (TextView) findViewById(R.id.tv_current_loc);
     }
 
     @Override
@@ -94,6 +99,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         getLocations();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void getLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -208,5 +221,37 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onHome(View view) {
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        MainActivity.this.startActivity(intent);
+        MainActivity.this.overridePendingTransition(0, 0);
+        MainActivity.this.finish();
+    }
+
+    public void onOrder(View view) {
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        MainActivity.this.startActivity(intent);
+        MainActivity.this.overridePendingTransition(0, 0);
+        MainActivity.this.finish();
+    }
+
+    public void onPayments(View view) {
+        Intent intent = new Intent(MainActivity.this, PaymentsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        MainActivity.this.startActivity(intent);
+        MainActivity.this.overridePendingTransition(0, 0);
+        MainActivity.this.finish();
+    }
+
+    public void onAbout(View view) {
+        Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        MainActivity.this.startActivity(intent);
+        MainActivity.this.overridePendingTransition(0, 0);
+        MainActivity.this.finish();
     }
 }
