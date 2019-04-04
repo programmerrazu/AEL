@@ -1,5 +1,6 @@
 package com.razu.activity;
 
+import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -22,6 +24,9 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -32,6 +37,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.razu.Apps;
 import com.razu.R;
 
 import java.io.IOException;
@@ -54,13 +60,51 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private Toolbar toolbar;
+    public static final String EXTRA_REVEAL_X = "EXTRA_REVEAL_X";
+    public static final String EXTRA_REVEAL_Y = "EXTRA_REVEAL_Y";
+    private Boolean doubleBackPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        if (savedInstanceState == null) {
+            revealAnimation();
+        }
         setUIComponent();
+    }
+
+    private void revealAnimation() {
+        final View mainLayout = findViewById(R.id.main_drawer_layout);
+        final Intent intent = getIntent();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && intent.hasExtra(EXTRA_REVEAL_X) && intent.hasExtra(EXTRA_REVEAL_Y)) {
+            mainLayout.setVisibility(View.INVISIBLE);
+            ViewTreeObserver viewTreeObserver = mainLayout.getViewTreeObserver();
+            if (viewTreeObserver.isAlive()) {
+                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        revealAnimator(mainLayout);
+                        mainLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                });
+            }
+        } else {
+            mainLayout.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void revealAnimator(View rootLayout) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            float finalRadius = (float) (Math.max(rootLayout.getWidth(), rootLayout.getHeight()) * 1.1);
+            Animator animator = ViewAnimationUtils.createCircularReveal(rootLayout, rootLayout.getMeasuredWidth() / 2, rootLayout.getMeasuredHeight() / 2, 50, finalRadius);
+            animator.setDuration(800);
+            animator.setInterpolator(new AccelerateInterpolator());
+            rootLayout.setVisibility(View.VISIBLE);
+            animator.start();
+        } else {
+            finish();
+        }
     }
 
     private void setUIComponent() {
@@ -224,34 +268,42 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void onHome(View view) {
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        MainActivity.this.startActivity(intent);
-        MainActivity.this.overridePendingTransition(0, 0);
-        MainActivity.this.finish();
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     public void onOrder(View view) {
-        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        MainActivity.this.startActivity(intent);
-        MainActivity.this.overridePendingTransition(0, 0);
-        MainActivity.this.finish();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        Apps.redirect(MainActivity.this, OrderActivity.class);
     }
 
     public void onPayments(View view) {
-        Intent intent = new Intent(MainActivity.this, PaymentsActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        MainActivity.this.startActivity(intent);
-        MainActivity.this.overridePendingTransition(0, 0);
-        MainActivity.this.finish();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        Apps.redirect(MainActivity.this, PaymentsActivity.class);
     }
 
     public void onAbout(View view) {
-        Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        MainActivity.this.startActivity(intent);
-        MainActivity.this.overridePendingTransition(0, 0);
-        MainActivity.this.finish();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        Apps.redirect(MainActivity.this, AboutActivity.class);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            if (doubleBackPressed) {
+                finish();
+                // moveTaskToBack(true);
+            } else {
+                doubleBackPressed = true;
+                Apps.snackBarMsg(getString(R.string.back_press), drawerLayout, this);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        doubleBackPressed = false;
+                    }
+                }, 3000);
+            }
+        }
     }
 }

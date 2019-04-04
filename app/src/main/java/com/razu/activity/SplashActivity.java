@@ -1,9 +1,9 @@
 package com.razu.activity;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.razu.Apps;
 import com.razu.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -16,10 +16,11 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void navigate() {
-        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        SplashActivity.this.startActivity(intent);
-        SplashActivity.this.overridePendingTransition(0, 0);
-        SplashActivity.this.finish();
+        Apps.redirect(SplashActivity.this, WelcomeActivity.class);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

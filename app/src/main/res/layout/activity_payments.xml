@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".activity.PaymentsActivity">
 
+    <include layout="@layout/toolbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Hello Payments" />
+
 </android.support.constraint.ConstraintLayout>
