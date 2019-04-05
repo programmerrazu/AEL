@@ -39,6 +39,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.razu.Apps;
 import com.razu.R;
+import com.razu.helper.PreferencesManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -63,11 +64,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public static final String EXTRA_REVEAL_X = "EXTRA_REVEAL_X";
     public static final String EXTRA_REVEAL_Y = "EXTRA_REVEAL_Y";
     private Boolean doubleBackPressed = false;
+    private PreferencesManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        session = new PreferencesManager(this);
         if (savedInstanceState == null) {
             revealAnimation();
         }

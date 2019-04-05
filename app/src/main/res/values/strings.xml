@@ -2,26 +2,18 @@
     <string name="app_name">AEL</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-
     <string name="back_press">Press back again to exist</string>
 
-    <string name="title_activity_welcome">Home Screen</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="slide_1_title">Hello Food!</string>
-    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
+    <string name="slide_title_1">Type Your Request</string>
+    <string name="slide_desc_1">Easy to find your desired vehicle</string>
 
-    <string name="slide_2_title">Movie Tickets</string>
-    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
+    <string name="slide_title_2">Get Free Quote</string>
+    <string name="slide_desc_2">Available quote for you</string>
 
-    <string name="slide_3_title">Great Discounts</string>
-    <string name="slide_3_desc">Best discounts on every single service we offer!</string>
-
-    <string name="slide_4_title">World Travel</string>
-    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
-
-    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
-    <string name="play_again">Play Again</string>
+    <string name="slide_title_3">Book Your Journey</string>
+    <string name="slide_desc_3">Select your favorite car</string>
 </resources>

@@ -14,7 +14,6 @@
         android:roundIcon="@drawable/splash_bg"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -29,35 +28,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.WelcomeActivity"
             android:label=""
             android:screenOrientation="portrait"
-            android:theme="@style/MainTheme" />
-
+            android:theme="@style/WelcomeTheme" />
         <activity
             android:name=".activity.MainActivity"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme" />
-
         <activity
             android:name=".activity.OrderActivity"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme" />
-
         <activity
             android:name=".activity.PaymentsActivity"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme" />
-
         <activity
             android:name=".activity.AboutActivity"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme" />
+
+        <activity
+            android:name=".activity.UserProcessingActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/ProcessTheme" />
     </application>
 </manifest>
