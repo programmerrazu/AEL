@@ -8,12 +8,12 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="slide_title_1">Type Your Request</string>
-    <string name="slide_desc_1">Easy to find your desired vehicle</string>
+    <string name="slide_title_1">Razu Ahmmed</string>
+    <string name="slide_desc_1">Sr. Android Developer</string>
 
-    <string name="slide_title_2">Get Free Quote</string>
-    <string name="slide_desc_2">Available quote for you</string>
+    <string name="slide_title_2">AEL</string>
+    <string name="slide_desc_2">The easiest way to order food from your favourite restaurant!</string>
 
-    <string name="slide_title_3">Book Your Journey</string>
-    <string name="slide_desc_3">Select your favorite car</string>
+    <string name="slide_title_3">Great Discounts</string>
+    <string name="slide_desc_3">Best discounts on every single service we offer!</string>
 </resources>

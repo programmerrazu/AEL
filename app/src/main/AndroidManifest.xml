@@ -40,19 +40,19 @@
             android:theme="@style/MainTheme" />
         <activity
             android:name=".activity.OrderActivity"
-            android:label=""
+            android:label="Order"
             android:screenOrientation="portrait"
-            android:theme="@style/MainTheme" />
+            android:theme="@style/AppsTheme" />
         <activity
             android:name=".activity.PaymentsActivity"
-            android:label=""
+            android:label="Payment"
             android:screenOrientation="portrait"
-            android:theme="@style/MainTheme" />
+            android:theme="@style/AppsTheme" />
         <activity
             android:name=".activity.AboutActivity"
-            android:label=""
+            android:label="About"
             android:screenOrientation="portrait"
-            android:theme="@style/MainTheme" />
+            android:theme="@style/AppsTheme" />
 
         <activity
             android:name=".activity.UserProcessingActivity"

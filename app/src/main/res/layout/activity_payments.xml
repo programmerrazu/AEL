@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,10 +7,52 @@
 
     <include layout="@layout/toolbar" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Hello Payments" />
+        android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:padding="@dimen/_10sdp"
+            android:text="Payment methods"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:drawablePadding="@dimen/_20sdp"
+            android:drawableStart="@drawable/ic_cash"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_10sdp"
+            android:text="Cash" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:drawablePadding="@dimen/_20sdp"
+            android:drawableStart="@drawable/ic_credit_card"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_10sdp"
+            android:text="Credit Card" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:drawablePadding="@dimen/_20sdp"
+            android:drawableStart="@drawable/ic_visa"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_10sdp"
+            android:text="Visa Card" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
