@@ -242,6 +242,11 @@ public class MainActivity extends AppCompatActivity {
         rvRestaurants.setAdapter(restaurantsAdapter);
     }
 
+    public void onLogInRegistration(View view) {
+        drawerLayout.closeDrawer(GravityCompat.START);
+        Apps.redirect(MainActivity.this, UserProcessingActivity.class);
+    }
+
 
     /**********************************************/
 
