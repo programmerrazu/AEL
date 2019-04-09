@@ -35,7 +35,6 @@
             android:theme="@style/WelcomeTheme" />
         <activity
             android:name=".activity.MainActivity"
-            android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/MainTheme" />
         <activity

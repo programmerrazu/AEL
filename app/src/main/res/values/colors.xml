@@ -35,6 +35,7 @@
 
     <color name="color_btn_green">#1AB188</color>
     <color name="apps_color">#FAA519</color>
+    <color name="bg_view_tag_deep">#BFBEBF</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>

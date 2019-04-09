@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_145sdp"
+    android:layout_marginEnd="@dimen/_15sdp"
+    android:layout_marginStart="@dimen/_15sdp"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_image_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_restaurant_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_restaurant_icon"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignStart="@+id/iv_restaurant_image"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/circle_white"
+            android:padding="@dimen/_2sdp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_restaurant_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/civ_restaurant_icon"
+            android:layout_alignEnd="@+id/civ_restaurant_icon"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_order_qnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rl_image_container"
+        android:paddingBottom="@dimen/_3sdp"
+        android:paddingTop="@dimen/_3sdp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_order_qnt"
+        android:paddingBottom="@dimen/_3sdp"
+        android:textColor="@color/bg_view_tag_deep"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_price"
+        android:paddingBottom="@dimen/_5sdp"
+        android:textColor="@color/bg_view_tag_deep"
+        android:textSize="14sp" />
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_220sdp"
+    android:layout_marginEnd="@dimen/_15sdp"
+    android:layout_marginStart="@dimen/_15sdp"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_image_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp">
+
+        <ImageView
+            android:id="@+id/iv_restaurant_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_restaurant_icon"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignStart="@+id/iv_restaurant_image"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/circle_white"
+            android:padding="@dimen/_2sdp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_restaurant_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/civ_restaurant_icon"
+            android:layout_alignEnd="@+id/civ_restaurant_icon"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_restaurant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rl_image_container"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_restaurant_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_restaurant_name"
+        android:paddingBottom="@dimen/_5sdp"
+        android:textColor="@color/bg_view_tag_deep"
+        android:textSize="14sp" />
+</RelativeLayout>

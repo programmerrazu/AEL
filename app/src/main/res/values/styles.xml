@@ -42,8 +42,8 @@
     <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/bg_view_light</item>
+        <item name="colorPrimaryDark">@color/bg_view_light</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">serif</item>
     </style>
